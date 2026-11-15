@@ -1,6 +1,5 @@
 
-
-<!-- README.md is generated from README.qmd. Please edit that file -->
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # peruflora
 
@@ -32,10 +31,10 @@ paso previo.
 
 Los cuatro paquetes especializados también se pueden instalar y utilizar
 por separado. `library(peruflora)` los adjunta en la sesión; sus
-funciones siguen disponibles con `paquete::funcion()`.
-Al cargarse, `peruflora` muestra los paquetes recién adjuntados con sus versiones
-y avisa si alguna función queda enmascarada. Puede silenciar este aviso con
-`suppressPackageStartupMessages(library(peruflora))` o con la opción
+funciones siguen disponibles con `paquete::funcion()`. Al cargarse,
+`peruflora` muestra los paquetes recién adjuntados con sus versiones y
+avisa si alguna función queda enmascarada. Puede silenciar este aviso
+con `suppressPackageStartupMessages(library(peruflora))` o con la opción
 `options(peruflora.quiet = TRUE)`.
 
 ## Consulta integrada
@@ -47,6 +46,7 @@ nombres <- c("Swietenia macrophylla", "Aa aurantiaca",
              "Sanchezia ovata", "Cattleya maxima", "Persea americana")
 
 evidencia <- flora_match(nombres)
+evidencia
 flora_status(evidencia)
 ```
 
@@ -78,14 +78,52 @@ ambos nombres. Solo la segunda fila indica `requiere_revision = TRUE`;
 los valores de esa fila son candidatos y se pueden auditar con
 `flora_match()`.
 
-Se aceptan vectores y tablas. Para tablas con varias columnas,
-`name_col` permite indicar la columna de nombres:
+## Evaluar un inventario
+
+`flora_status()` acepta tablas con otras columnas si se indica
+`name_col`. El resultado conserva una fila por registro, incluso cuando
+un nombre se repite. `indice_entrada` corresponde a la posición de cada
+fila del inventario, por lo que permite unir el resumen sin mezclar
+registros repetidos.
 
 ``` r
-inventario <- data.frame(id = 1:2,
-                         nombre_cientifico = c("Aa aurantiaca", "Cattleya maxima"))
-flora_status(inventario)
+library(peruflora)
+library(dplyr)
+library(tibble)
+
+inventario <- tibble(
+  indice_entrada = 1:5,
+  parcela = c("P01", "P01", "P02", "P02", "P03"),
+  nombre_cientifico = c(
+    "Aa aurantiaca",
+    "Cattleya maxima",
+    "Persea americana",
+    "Aa aurantiaca",  # registro repetido
+    "Catleya maxima"  # posible error de escritura
+  ),
+  abundancia = c(2, 1, 4, 3, 1)
+)
+inventario
+
+estado <- flora_status(
+  inventario,
+  name_col = "nombre_cientifico"
+)
+estado
+
+inventario_evaluado <- inventario |>
+  left_join(
+    select(estado, -nombre_original),
+    by = "indice_entrada"
+  )
+
+inventario_evaluado
 ```
+
+La fila con `Catleya maxima` conserva las categorías sugeridas en el
+resumen, pero `requiere_revision = TRUE` indica que son candidatas. Para
+revisar la evidencia de ese registro, use
+`flora_match(inventario, name_col = "nombre_cientifico")`.
 
 ## Paquetes y procedencia
 
