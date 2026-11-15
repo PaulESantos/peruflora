@@ -1,10 +1,25 @@
 Package: peruflora
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Integrate Peruvian Flora Taxonomy and Conservation Sources
+Version: 0.0.0.9001
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Paul E.", "Santos Andrade", , "paulefrens@gmail.com",
+           role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0002-6635-0375"))
+Description: Cross-references plant names against four independent Peruvian
+    flora packages covering CITES listings, current endemic taxa, the historical
+    Red Book of endemic plants, and Supreme Decree 043-2006-AG. Returns
+    source-level matching evidence and a compact summary while retaining
+    uncertainty and source provenance.
 License: MIT + file LICENSE
+Depends:
+    R (>= 4.1.0)
+Imports:
+    citesperu (>= 0.1.0),
+    cli,
+    peruflorads43 (>= 0.2.3),
+    ppendemic (>= 0.2.2),
+    redbookperu (>= 0.1.0),
+    tibble
 Suggests: 
     testthat (>= 3.0.0)
 Config/roxygen2/version: 8.1.1
