@@ -29,6 +29,19 @@ test_that("confirmed statuses retain their source and do not imply other statuse
   expect_false(any(summary$requiere_revision))
 })
 
+test_that("redbookperu 0.1.0 exact and fuzzy matches retain their certainty", {
+  result <- flora_match(c("Sanchezia ovata", "Verbesina andinaa",
+                          "Persea americana"), fuentes = "libro_rojo")
+  expect_identical(result$indice_entrada, 1:3)
+  expect_identical(result$evaluacion, c("confirmado", "requiere_revision",
+                                        "sin_coincidencia"))
+  expect_identical(result$tipo_coincidencia[1:2], c("exact", "fuzzy"))
+  expect_identical(result$status_fuente[1], "endemic")
+  expect_true(is.na(result$status_fuente[2]))
+  expect_identical(result$status_candidato[2], "endemic")
+  expect_true(flora_status(result)$requiere_revision[2])
+})
+
 test_that("approximate names are candidates only", {
   strict <- flora_match("Catleya maxima")
   ds <- strict[strict$fuente == "ds043", ]

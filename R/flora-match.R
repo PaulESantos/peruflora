@@ -269,6 +269,7 @@ flora_match <- function(x, name_col = NULL,
 
 .flora_redbook <- function(x, modo) {
   raw <- redbookperu::match_redbook_names(x, dist = if (modo == "estricto") 0 else 0.1,
+                                         parser = "legacy",
                                          output = "detailed")
   if (nrow(raw) != length(x) || !identical(as.integer(raw$input_index), seq_along(x))) {
     stop("redbookperu cambi\u00f3 el orden o n\u00famero de filas.", call. = FALSE)

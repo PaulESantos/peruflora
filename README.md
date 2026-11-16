@@ -1,4 +1,5 @@
 
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # peruflora
@@ -11,23 +12,23 @@ de cada fuente.
 
 ## Instalación
 
-Esta es una versión de desarrollo. `peruflora` requiere `redbookperu`
-0.1.0 o posterior, que todavía no está disponible en CRAN. Instale
-primero la versión de desarrollo de `redbookperu` desde GitHub y después
-`peruflora`:
+La primera versión de `peruflora` es 0.1.0. Hasta su publicación en
+CRAN, instálela desde GitHub. Requiere `redbookperu` 0.1.0 o posterior,
+disponible en CRAN:
 
 ``` r
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
-pak::pak("PaulESantos/redbookperu")
+install.packages("redbookperu")
 pak::pak("PaulESantos/peruflora")
 
 packageVersion("redbookperu") # debe ser >= 0.1.0
 ```
 
-La versión 0.0.3 de `redbookperu` disponible en CRAN no incluye
-`match_redbook_names()`, función que usa `peruflora`. Cuando se publique
-una versión compatible en CRAN, se podrá instalar `peruflora` sin este
-paso previo.
+Si ya tiene instalada una versión anterior de `redbookperu`, actualícela
+desde CRAN antes de cargar `peruflora`. El adaptador usa
+`redbookperu::match_redbook_names()` de la versión 0.1.0 y fija el
+parser `"legacy"` para mantener resultados reproducibles con
+independencia de si `wcvpmatch` está instalado.
 
 Los cuatro paquetes especializados también se pueden instalar y utilizar
 por separado. `library(peruflora)` los adjunta en la sesión; sus
