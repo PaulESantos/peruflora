@@ -4,6 +4,16 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+options(tibble.width = Inf, width = 140)
+```
+
 # peruflora
 
 `peruflora` consulta cuatro fuentes independientes de flora peruana: el listado
@@ -95,7 +105,7 @@ shiny::runApp(system.file("app", package = "peruflora"))
 
 ## Consulta integrada
 
-```r
+```{r}
 library(peruflora)
 
 nombres <- c("Swietenia macrophylla", "Aa aurantiaca",
@@ -114,7 +124,7 @@ estado en `status_candidato`, sin trasladarlos a `status_fuente`. El resumen
 `flora_status()` muestra también esos estados candidatos y activa
 `requiere_revision`; consulte el detalle antes de utilizarlos como confirmados.
 
-```r
+```{r}
 flora_match("Catleya maxima", modo = "exploratorio")
 flora_status(c("Aa aurantiaca", "Persea americana"))
 flora_fuentes()
@@ -138,7 +148,7 @@ El resultado conserva una fila por registro, incluso cuando un nombre se repite.
 `indice_entrada` corresponde a la posición de cada fila del inventario, por lo
 que permite unir el resumen sin mezclar registros repetidos.
 
-```r
+```{r}
 library(peruflora)
 library(dplyr)
 library(tibble)
