@@ -23,6 +23,7 @@ Imports:
     tibble
 Suggests: 
     callr,
+    dplyr,
     DT,
     htmltools,
     knitr,
@@ -33,9 +34,10 @@ Suggests:
     shiny,
     writexl,
     testthat (>= 3.0.0)
+VignetteBuilder: knitr
 Config/roxygen2/version: 8.1.1
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-URL: https://github.com/PaulESantos/peruflora
+URL: https://github.com/PaulESantos/peruflora, https://paulesantos.github.io/peruflora/
 BugReports: https://github.com/PaulESantos/peruflora/issues

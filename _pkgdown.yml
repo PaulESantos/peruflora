@@ -1,4 +1,93 @@
 url: https://paulesantos.github.io/peruflora/
+
+development:
+  mode: unreleased
+
+home:
+  title: "peruflora: Reconcile and Harmonize Peruvian Flora Taxonomy and Conservation"
+  description: "Cross-references plant names against four independent Peruvian flora packages covering CITES listings, current endemic taxa (WCVP), the historical Red Book of endemic plants, and Supreme Decree 043-2006-AG. Includes an interactive Shiny application."
+
+authors:
+  Paul E. Santos Andrade:
+    href: https://orcid.org/0000-0002-6635-0375
+    html: '<a href="https://orcid.org/0000-0002-6635-0375"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD" style="vertical-align:middle;margin-right:4px;">Paul E. Santos Andrade</a>'
+
 template:
   bootstrap: 5
+  assets: pkgdown
+  bslib:
+    font_scale: 1.0
+    base_font:
+      google: "Jost"
+    code_font:
+      google: "Overpass Mono"
+    heading_font:
+      google: "Abhaya Libre"
+    bg: "#fcfbf9"
+    fg: "#1a2e22"
+    primary: "#14533d"
+    secondary: "#c8e6d7"
+    link-color: "#166534"
+    info: "#c8e6d7"
+    headings-color: "#0f3e2e"
+    navbar-bg: "#fcfbf9"
+    navbar-light-color: "#14533d"
+    navbar-light-hover-color: "#0f3e2e"
 
+opengraph:
+  twitter:
+    creator: "@PaulEfrenSantos"
+    card: summary
+
+navbar:
+  type: light
+  bg: "#fcfbf9"
+  structure:
+    left: [home, intro, reference, articles, news]
+    right: [search, github]
+  components:
+    home:
+      icon: fa-home fa-lg
+      aria-label: "Home"
+      href: index.html
+    intro:
+      text: "Get started"
+      href: articles/uso-flora-match-flora-status.html
+    reference:
+      text: "Reference"
+      href: reference/index.html
+    articles:
+      text: "Articles"
+      menu:
+        - text: "Uso Integrado de flora_match() y flora_status()"
+          href: articles/uso-flora-match-flora-status.html
+    news:
+      text: "News"
+      href: news/index.html
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/PaulESantos/peruflora
+      aria-label: GitHub
+
+reference:
+  - title: "Unified Queries & Evidence"
+    desc: "Core functions to cross-reference plant names and extract source-level matching evidence or compact summaries across the four independent flora backbones."
+    contents:
+      - flora_match
+      - flora_status
+      - flora_fuentes
+
+  - title: "Interactive Application"
+    desc: "Interactive Shiny graphical interface for batch queries, data cleaning, candidate review, and Excel/CSV exports."
+    contents:
+      - run_peruflora_app
+      - flora_app
+      - peruflora_app
+
+  - title: "Metapackage Orchestration & Diagnostics"
+    desc: "Tools to inspect package versions, attach the core ecosystem packages, and diagnose environment state and conflicts."
+    contents:
+      - peruflora_attach
+      - peruflora_deps
+      - peruflora_sitrep
+      - peruflora_conflicts

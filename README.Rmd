@@ -41,32 +41,57 @@ y avisa si alguna función queda enmascarada. Puede silenciar este aviso con
 
 ## Aplicación interactiva (Shiny)
 
-Con **peruflora** instalado, añade las dependencias opcionales y abre la app:
+`peruflora` incluye una aplicación interactiva Shiny opcional para consultar, armonizar y auditar lotes de nombres científicos sin necesidad de escribir código.
+
+### Instalación de dependencias opcionales
 
 ```r
 install.packages(c("shiny", "DT", "callr", "later"))
-# Opcional: lectura y descarga de archivos de Excel
+# Opcional: para importación y descarga en Excel (.xlsx)
 install.packages(c("readxl", "writexl"))
-
-# Iniciar la aplicación interactiva (alias canónico: flora_app())
-peruflora::run_peruflora_app()
-# o bien:
-# peruflora::flora_app()
 ```
 
-También puedes ejecutar la app directamente desde el archivo `app.R` en la raíz del repositorio, o mediante:
+### Iniciar la aplicación
+
+```r
+# Iniciar con el alias canónico
+peruflora::flora_app()
+
+# O con opciones avanzadas de host y puerto
+peruflora::run_peruflora_app(host = "127.0.0.1", port = 3838)
+```
+
+También puedes ejecutarla directamente desde el archivo `app.R` en la raíz del repositorio, o mediante:
 
 ```r
 shiny::runApp(system.file("app", package = "peruflora"))
 ```
 
-La app ofrece una consulta integrada y cuatro vistas especializadas:
-CITES Flora, endemismo actual (WCVP), Libro Rojo y D.S. 043-2006-AG. Puedes pegar nombres o subir
-un archivo TXT, CSV (con detección automática de `,` o `;`), TSV, XLS o
-XLSX; seleccionar la columna de nombres; revisar los resultados con
-tablas interactivas en español y descargarlos. Los archivos de Excel
-requieren `readxl` para importar y `writexl` para exportar. Cada
-fila con coincidencia aproximada o ambigua se señala para revisión manual.
+### Capacidades principales
+
+1. **Ingesta flexible de datos**:
+   - Pega nombres directamente en el área de texto o carga archivos en formatos **TXT**, **CSV** (con detección automática de comas o punto y coma de Excel en español), **TSV**, **XLS** o **XLSX**.
+   - Reconocimiento automático de columnas taxonómicas (`scientific_name`, `nombre_cientifico`, `species`, `name`, etc.).
+   - Admite hasta 10 000 nombres por lote con validación previa de caracteres y cardinalidad.
+
+2. **Cinco vistas especializadas**:
+   - **Consulta integrada**: Ejecuta `flora_status()` (resumen) o `flora_match()` (evidencia detallada) cruzando simultáneamente las cuatro fuentes. Permite alternar entre modo *exploratorio* (con candidatos sugeridos) y modo *estricto*.
+   - **CITES Flora**: Consulta los Apéndices I, II y III del listado oficial MINAM (2018), con parámetros configurables de distancia de edición, coincidencia por sinónimos o género.
+   - **Endemismo actual**: Búsqueda jerárquica en el catálogo de plantas vasculares endémicas del Perú de `ppendemic` (basado en WCVP V-16, con más de 8000 registros).
+   - **Libro Rojo**: Consulta contra el Libro Rojo de las Plantas Endémicas del Perú (León et al., 2006, `redbookperu`) con correspondencias taxonómicas actualizadas y categorías UICN técnicas.
+   - **D.S. 043-2006-AG**: Verificación normativa de especies legalmente protegidas bajo el Decreto Supremo N° 043-2006-AG (`peruflorads43`), reconciliando taxonomía original y actualizada.
+
+3. **Ejecución asíncrona y cancelación**:
+   - Las consultas se ejecutan en un subproceso en segundo plano (`callr` y `later`), manteniendo la interfaz responsiva y permitiendo cancelar la búsqueda en cualquier momento. Si el entorno no soporta procesos secundarios, conmuta automáticamente a modo síncrono.
+
+4. **Auditoría visual y métricas**:
+   - Tarjetas KPI interactivas con recuentos y porcentajes de coincidencia por fuente.
+   - Alerta visual destacada cuando existen filas que requieren revisión manual (`review_flag = TRUE`).
+   - Tabla interactiva (`DT`) en español con ordenación, paginación y búsqueda facetada por columnas.
+   - Ficha de detalle para inspeccionar exhaustivamente cualquier registro seleccionado.
+
+5. **Exportación reproducible**:
+   - Descarga de resultados en formatos **CSV** (UTF-8) o **Excel (XLSX)**, preservando el archivo y número de fila de origen, estado de revisión y observaciones.
 
 ## Consulta integrada
 

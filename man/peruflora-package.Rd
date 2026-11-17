@@ -8,12 +8,15 @@
 \description{
 Reúne \code{citesperu}, \code{ppendemic}, \code{redbookperu} y \code{peruflorads43} sin
 modificar sus API. Use \code{\link[=flora_match]{flora_match()}} para evidencia detallada y
-\code{\link[=flora_status]{flora_status()}} para un resumen por nombre.
+\code{\link[=flora_status]{flora_status()}} para un resumen por nombre. Incluye además la aplicación
+interactiva \code{\link[=flora_app]{flora_app()}} / \code{\link[=run_peruflora_app]{run_peruflora_app()}} para consultas en lote y
+exportación de resultados.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://github.com/PaulESantos/peruflora}
+  \item \url{https://paulesantos.github.io/peruflora/}
   \item Report bugs at \url{https://github.com/PaulESantos/peruflora/issues}
 }
 
