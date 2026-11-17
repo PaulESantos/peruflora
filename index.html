@@ -64,15 +64,17 @@
 <div class="section level2">
 <h2 id="instalación">Instalación<a class="anchor" aria-label="anchor" href="#instalaci%C3%B3n"></a>
 </h2>
-<p>La primera versión de <code>peruflora</code> es 0.1.0. Hasta su publicación en CRAN, instálela desde GitHub. Requiere <code>redbookperu</code> 0.1.0 o posterior, disponible en CRAN:</p>
+<p>Instala <strong>peruflora</strong> y todas sus dependencias desde GitHub con una de estas opciones:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"pak"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"redbookperu"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># Instalar usando pak (recomendado)</span></span>
+<span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"PaulESantos/peruflora"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"redbookperu"</span><span class="op">)</span> <span class="co"># debe ser &gt;= 0.1.0</span></span></code></pre></div>
-<p>Si ya tiene instalada una versión anterior de <code>redbookperu</code>, actualícela desde CRAN antes de cargar <code>peruflora</code>. El adaptador usa <code><a href="https://paulesantos.github.io/redbookperu/reference/match_redbook_names.html" class="external-link">redbookperu::match_redbook_names()</a></code> de la versión 0.1.0 y fija el parser <code>"legacy"</code> para mantener resultados reproducibles con independencia de si <code>wcvpmatch</code> está instalado.</p>
-<p>Los cuatro paquetes especializados también se pueden instalar y utilizar por separado. <code><a href="https://github.com/PaulESantos/peruflora" class="external-link">library(peruflora)</a></code> los adjunta en la sesión; sus funciones siguen disponibles con <code>paquete::funcion()</code>. Al cargarse, <code>peruflora</code> muestra los paquetes recién adjuntados con sus versiones y avisa si alguna función queda enmascarada. Puede silenciar este aviso con <code>suppressPackageStartupMessages(library(peruflora))</code> o con la opción <code>options(peruflora.quiet = TRUE)</code>.</p>
+<span><span class="co"># O alternativamente con remotes</span></span>
+<span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"PaulESantos/peruflora"</span><span class="op">)</span></span></code></pre></div>
+<p>Los cuatro paquetes especializados (<code>citesperu</code>, <code>ppendemic</code>, <code>redbookperu</code> y <code>peruflorads43</code>) también se pueden instalar y utilizar por separado. <code><a href="https://github.com/PaulESantos/peruflora" class="external-link">library(peruflora)</a></code> los adjunta automáticamente en la sesión; sus funciones siguen disponibles con <code>paquete::funcion()</code>.</p>
+<p>Al cargarse, <code>peruflora</code> muestra los paquetes recién adjuntados con sus versiones y avisa si alguna función queda enmascarada. Puede silenciar este aviso con <code>suppressPackageStartupMessages(library(peruflora))</code> o con la opción <code>options(peruflora.quiet = TRUE)</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="aplicación-interactiva-shiny">Aplicación interactiva (Shiny)<a class="anchor" aria-label="anchor" href="#aplicaci%C3%B3n-interactiva-shiny"></a>
@@ -91,10 +93,7 @@
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Iniciar con el alias canónico</span></span>
-<span><span class="fu">peruflora</span><span class="fu">::</span><span class="fu"><a href="reference/run_peruflora_app.html">flora_app</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># O con opciones avanzadas de host y puerto</span></span>
-<span><span class="fu">peruflora</span><span class="fu">::</span><span class="fu"><a href="reference/run_peruflora_app.html">run_peruflora_app</a></span><span class="op">(</span>host <span class="op">=</span> <span class="st">"127.0.0.1"</span>, port <span class="op">=</span> <span class="fl">3838</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">peruflora</span><span class="fu">::</span><span class="fu"><a href="reference/run_peruflora_app.html">flora_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>También puedes ejecutarla directamente desde el archivo <code>app.R</code> en la raíz del repositorio, o mediante:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/runApp.html" class="external-link">runApp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"app"</span>, package <span class="op">=</span> <span class="st">"peruflora"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
