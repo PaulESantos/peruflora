@@ -1,0 +1,132 @@
+:root {
+  --pf-primary: #14533d;
+  --pf-accent: #10b981;
+  --pf-soft-green: #e6f5ee;
+  --pf-dark: #0f2e22;
+  --pf-link: #15803d;
+  --pf-border: #d4e5dc;
+}
+
+/* spacing ----------------------------------------------- */
+
+.contents h2, .contents h3, .contents h4 {
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  color: var(--pf-dark);
+}
+
+.row {
+  margin-top: 1.5em;
+}
+
+@media (min-width: 768px) {
+  .contents {
+    padding-right: 4em;
+  }
+}
+
+/* navbar ----------------------------------------------- */
+
+.navbar {
+  padding-bottom: 1em;
+  padding-top: 1em;
+  border-bottom: 1px solid var(--pf-border);
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .active > .nav-link {
+  background: var(--pf-soft-green);
+  color: var(--pf-dark);
+  font-weight: 700;
+  border-radius: 0.35rem;
+}
+
+.navbar-light .navbar-nav .nav-item > .nav-link:hover {
+  background: var(--pf-soft-green);
+  color: var(--pf-dark);
+  border-radius: 0.35rem;
+}
+
+code a {
+  color: var(--pf-link);
+}
+
+code a:hover {
+  color: var(--pf-dark);
+}
+
+/* Dev status & sidebar readability --------------------- */
+
+.dev-status,
+aside .dev-status,
+.sidebar .dev-status {
+  margin-top: 1.75rem;
+  padding-top: 0.5rem;
+}
+
+.dev-status h2,
+aside .dev-status h2,
+.sidebar .dev-status h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--pf-dark);
+  margin-bottom: 0.85rem;
+  border-bottom: 2px solid var(--pf-accent);
+  padding-bottom: 0.35rem;
+}
+
+.dev-status ul,
+aside .dev-status ul,
+.sidebar .dev-status ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dev-status li,
+aside .dev-status li,
+.sidebar .dev-status li {
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+.dev-status img,
+aside .dev-status img,
+.sidebar .dev-status img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+}
+
+/* Sidebar sections readability */
+aside h2,
+.sidebar h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--pf-dark);
+  margin-top: 1.5rem;
+  margin-bottom: 0.65rem;
+}
+
+aside ul,
+.sidebar ul {
+  padding-left: 1.1rem;
+}
+
+/* Tables and badges polish */
+.table {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.table th {
+  background-color: rgba(200, 230, 215, 0.45);
+  color: var(--pf-dark);
+  font-weight: 700;
+}
