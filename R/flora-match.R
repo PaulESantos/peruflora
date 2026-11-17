@@ -213,7 +213,7 @@ flora_match <- function(x, name_col = NULL,
 
 .flora_cites <- function(x, modo) {
   raw <- citesperu::cites_match(x, taxon = "flora", edition = "2018",
-                               max_dist = if (modo == "estricto") 0L else 1L,
+                               max_dist = if (modo == "estricto") 0L else 2L,
                                genus_fallback = FALSE, output = "standard")
   if (nrow(raw) != length(x) || !identical(as.integer(raw$input_index), seq_along(x))) {
     stop("CITES cambi\u00f3 el orden o n\u00famero de filas.", call. = FALSE)

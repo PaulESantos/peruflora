@@ -12,3 +12,7 @@
 ^ARQUITECTURA\.md$
 ^CRAN_AUDIT\.md$
 ^_check_artifacts$
+^\.cran-lib$
+^\.Rprofile$
+^app\.R$
+^R/_disable_autoload\.R$

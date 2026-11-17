@@ -38,6 +38,36 @@ avisa si alguna función queda enmascarada. Puede silenciar este aviso
 con `suppressPackageStartupMessages(library(peruflora))` o con la opción
 `options(peruflora.quiet = TRUE)`.
 
+## Aplicación interactiva (Shiny)
+
+Con **peruflora** instalado, añade las dependencias opcionales y abre la app:
+
+``` r
+install.packages(c("shiny", "DT", "callr", "later"))
+# Opcional: lectura y descarga de archivos de Excel
+install.packages(c("readxl", "writexl"))
+
+# Iniciar la aplicación interactiva (alias canónico: flora_app())
+peruflora::run_peruflora_app()
+# o bien:
+# peruflora::flora_app()
+```
+
+También puedes ejecutar la app directamente desde el archivo `app.R` en
+la raíz del repositorio, o mediante:
+
+``` r
+shiny::runApp(system.file("app", package = "peruflora"))
+```
+
+La app ofrece una consulta integrada y cuatro vistas especializadas:
+CITES Flora, endemismo actual (WCVP), Libro Rojo y D.S. 043-2006-AG. Puedes pegar nombres o subir
+un archivo TXT, CSV (con detección automática de `,` o `;`), TSV, XLS o
+XLSX; seleccionar la columna de nombres; revisar los resultados con
+tablas interactivas en español y descargarlos. Los archivos de Excel
+requieren `readxl` para importar y `writexl` para exportar. Cada
+fila con coincidencia aproximada o ambigua se señala para revisión manual.
+
 ## Consulta integrada
 
 ``` r

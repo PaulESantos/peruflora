@@ -9,7 +9,8 @@ Description: Cross-references plant names against four independent Peruvian
     flora packages covering CITES listings, current endemic taxa, the historical
     Red Book of endemic plants, and Supreme Decree 043-2006-AG. Returns
     source-level matching evidence and a compact summary while retaining
-    uncertainty and source provenance.
+    uncertainty and source provenance, flags approximate names for manual review,
+    and offers an optional 'Shiny' application for batch queries and file exports.
 License: MIT + file LICENSE
 Depends:
     R (>= 4.1.0)
@@ -21,6 +22,16 @@ Imports:
     redbookperu (>= 0.1.0),
     tibble
 Suggests: 
+    callr,
+    DT,
+    htmltools,
+    knitr,
+    later,
+    pkgload,
+    readxl,
+    rmarkdown,
+    shiny,
+    writexl,
     testthat (>= 3.0.0)
 Config/roxygen2/version: 8.1.1
 Config/testthat/edition: 3
