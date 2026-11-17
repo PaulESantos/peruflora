@@ -155,18 +155,122 @@
 </h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/peruflora" class="external-link">peruflora</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── Adjuntando paquetes principales de peruflora ───────────────────────────────────────────────────────────────────────── peruflora 0.1.0 ──</span></span>
+<span><span class="co">#&gt; ✔ citesperu     0.1.0     ✔ ppendemic     0.2.2</span></span>
+<span><span class="co">#&gt; ✔ peruflorads43 0.2.3     ✔ redbookperu   0.1.0</span></span>
+<span><span class="co">#&gt; ℹ Use flora_match() para consultar las cuatro fuentes.</span></span>
 <span></span>
 <span><span class="va">nombres</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Swietenia macrophylla"</span>, <span class="st">"Aa aurantiaca"</span>,</span>
 <span>             <span class="st">"Sanchezia ovata"</span>, <span class="st">"Cattleya maxima"</span>, <span class="st">"Persea americana"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">evidencia</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/flora_match.html">flora_match</a></span><span class="op">(</span><span class="va">nombres</span><span class="op">)</span></span>
 <span><span class="va">evidencia</span></span>
-<span><span class="fu"><a href="reference/flora_status.html">flora_status</a></span><span class="op">(</span><span class="va">evidencia</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 20 × 16</span></span>
+<span><span class="co">#&gt;    indice_entrada nombre_original       fuente           edicion                paquete_version nombre_coincidente    nombre_aceptado      </span></span>
+<span><span class="co">#&gt;             &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;            &lt;chr&gt;                  &lt;chr&gt;           &lt;chr&gt;                 &lt;chr&gt;                </span></span>
+<span><span class="co">#&gt;  1              1 Swietenia macrophylla cites            MINAM flora 2018       0.1.0           Swietenia macrophylla Swietenia macrophylla</span></span>
+<span><span class="co">#&gt;  2              2 Aa aurantiaca         cites            MINAM flora 2018       0.1.0           Aa aurantiaca         Aa aurantiaca        </span></span>
+<span><span class="co">#&gt;  3              3 Sanchezia ovata       cites            MINAM flora 2018       0.1.0           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt;  4              4 Cattleya maxima       cites            MINAM flora 2018       0.1.0           Cattleya maxima       Cattleya maxima      </span></span>
+<span><span class="co">#&gt;  5              5 Persea americana      cites            MINAM flora 2018       0.1.0           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt;  6              1 Swietenia macrophylla endemismo_actual WCVP V-16 (2026-06-04) 0.2.2           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt;  7              2 Aa aurantiaca         endemismo_actual WCVP V-16 (2026-06-04) 0.2.2           Aa aurantiaca         Aa aurantiaca        </span></span>
+<span><span class="co">#&gt;  8              3 Sanchezia ovata       endemismo_actual WCVP V-16 (2026-06-04) 0.2.2           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt;  9              4 Cattleya maxima       endemismo_actual WCVP V-16 (2026-06-04) 0.2.2           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt; 10              5 Persea americana      endemismo_actual WCVP V-16 (2026-06-04) 0.2.2           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt; 11              1 Swietenia macrophylla libro_rojo       Libro Rojo 2006        0.1.0           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt; 12              2 Aa aurantiaca         libro_rojo       Libro Rojo 2006        0.1.0           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt; 13              3 Sanchezia ovata       libro_rojo       Libro Rojo 2006        0.1.0           Sanchezia capitata    Sanchezia ovata      </span></span>
+<span><span class="co">#&gt; 14              4 Cattleya maxima       libro_rojo       Libro Rojo 2006        0.1.0           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt; 15              5 Persea americana      libro_rojo       Libro Rojo 2006        0.1.0           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt; 16              1 Swietenia macrophylla ds043            D. S. 043-2006-AG      0.2.3           Swietenia macrophylla &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt; 17              2 Aa aurantiaca         ds043            D. S. 043-2006-AG      0.2.3           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt; 18              3 Sanchezia ovata       ds043            D. S. 043-2006-AG      0.2.3           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt; 19              4 Cattleya maxima       ds043            D. S. 043-2006-AG      0.2.3           Cattleya maxima       &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt; 20              5 Persea americana      ds043            D. S. 043-2006-AG      0.2.3           &lt;NA&gt;                  &lt;NA&gt;                 </span></span>
+<span><span class="co">#&gt;    nombre_candidato tipo_coincidencia evaluacion       distancia presencia status_fuente status_candidato id_registro</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;            &lt;chr&gt;             &lt;chr&gt;                &lt;dbl&gt; &lt;lgl&gt;     &lt;chr&gt;         &lt;chr&gt;            &lt;chr&gt;      </span></span>
+<span><span class="co">#&gt;  1 &lt;NA&gt;             exact             confirmado               0 TRUE      II            &lt;NA&gt;             292        </span></span>
+<span><span class="co">#&gt;  2 &lt;NA&gt;             exact             confirmado               0 TRUE      II            &lt;NA&gt;             293        </span></span>
+<span><span class="co">#&gt;  3 &lt;NA&gt;             unmatched         sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt;  4 &lt;NA&gt;             exact             confirmado               0 TRUE      II            &lt;NA&gt;             488        </span></span>
+<span><span class="co">#&gt;  5 &lt;NA&gt;             unmatched         sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt;  6 &lt;NA&gt;             &lt;NA&gt;              sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt;  7 &lt;NA&gt;             exact             confirmado               0 TRUE      Endemic       &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt;  8 &lt;NA&gt;             &lt;NA&gt;              sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt;  9 &lt;NA&gt;             &lt;NA&gt;              sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt; 10 &lt;NA&gt;             &lt;NA&gt;              sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt; 11 &lt;NA&gt;             no_match          sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt; 12 &lt;NA&gt;             no_match          sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt; 13 &lt;NA&gt;             exact             confirmado               0 TRUE      endemic       &lt;NA&gt;             32SACA     </span></span>
+<span><span class="co">#&gt; 14 &lt;NA&gt;             no_match          sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt; 15 &lt;NA&gt;             no_match          sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt; 16 &lt;NA&gt;             exact             confirmado               0 TRUE      VU            &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt; 17 &lt;NA&gt;             &lt;NA&gt;              sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt; 18 &lt;NA&gt;             &lt;NA&gt;              sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt; 19 &lt;NA&gt;             exact             confirmado               0 TRUE      CR            &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt; 20 &lt;NA&gt;             &lt;NA&gt;              sin_coincidencia        NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;       </span></span>
+<span><span class="co">#&gt;    referencia                         </span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;                              </span></span>
+<span><span class="co">#&gt;  1 cites_flora_peru_2018              </span></span>
+<span><span class="co">#&gt;  2 cites_flora_peru_2018              </span></span>
+<span><span class="co">#&gt;  3 cites_flora_peru_2018              </span></span>
+<span><span class="co">#&gt;  4 cites_flora_peru_2018              </span></span>
+<span><span class="co">#&gt;  5 cites_flora_peru_2018              </span></span>
+<span><span class="co">#&gt;  6 ppendemic_tab16                    </span></span>
+<span><span class="co">#&gt;  7 ppendemic_tab16                    </span></span>
+<span><span class="co">#&gt;  8 ppendemic_tab16                    </span></span>
+<span><span class="co">#&gt;  9 ppendemic_tab16                    </span></span>
+<span><span class="co">#&gt; 10 ppendemic_tab16                    </span></span>
+<span><span class="co">#&gt; 11 redbook_sp_data                    </span></span>
+<span><span class="co">#&gt; 12 redbook_sp_data                    </span></span>
+<span><span class="co">#&gt; 13 redbook_sp_data                    </span></span>
+<span><span class="co">#&gt; 14 redbook_sp_data                    </span></span>
+<span><span class="co">#&gt; 15 redbook_sp_data                    </span></span>
+<span><span class="co">#&gt; 16 original y nomenclatura actualizada</span></span>
+<span><span class="co">#&gt; 17 original y nomenclatura actualizada</span></span>
+<span><span class="co">#&gt; 18 original y nomenclatura actualizada</span></span>
+<span><span class="co">#&gt; 19 original y nomenclatura actualizada</span></span>
+<span><span class="co">#&gt; 20 original y nomenclatura actualizada</span></span>
+<span><span class="fu"><a href="reference/flora_status.html">flora_status</a></span><span class="op">(</span><span class="va">evidencia</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 5 × 7</span></span>
+<span><span class="co">#&gt;   indice_entrada nombre_original       cites_apendice endemismo_actual libro_rojo_endemico ds043_categoria requiere_revision</span></span>
+<span><span class="co">#&gt;            &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;          &lt;lgl&gt;            &lt;lgl&gt;               &lt;chr&gt;           &lt;lgl&gt;            </span></span>
+<span><span class="co">#&gt; 1              1 Swietenia macrophylla II             FALSE            FALSE               VU              FALSE            </span></span>
+<span><span class="co">#&gt; 2              2 Aa aurantiaca         II             TRUE             FALSE               &lt;NA&gt;            FALSE            </span></span>
+<span><span class="co">#&gt; 3              3 Sanchezia ovata       &lt;NA&gt;           FALSE            TRUE                &lt;NA&gt;            FALSE            </span></span>
+<span><span class="co">#&gt; 4              4 Cattleya maxima       II             FALSE            FALSE               CR              FALSE            </span></span>
+<span><span class="co">#&gt; 5              5 Persea americana      &lt;NA&gt;           FALSE            FALSE               &lt;NA&gt;            FALSE</span></span></code></pre></div>
 <p><code><a href="reference/flora_match.html">flora_match()</a></code> devuelve una fila por nombre y fuente. <code>evaluacion</code> distingue <code>confirmado</code>, <code>sin_coincidencia</code>, <code>requiere_revision</code>, <code>ambiguo</code> y <code>entrada_invalida</code>. <code>presencia = FALSE</code> significa ausencia <strong>en la edición consultada</strong>. Los nombres aproximados se muestran en <code>nombre_candidato</code> y su estado en <code>status_candidato</code>, sin trasladarlos a <code>status_fuente</code>. El resumen <code><a href="reference/flora_status.html">flora_status()</a></code> muestra también esos estados candidatos y activa <code>requiere_revision</code>; consulte el detalle antes de utilizarlos como confirmados.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/flora_match.html">flora_match</a></span><span class="op">(</span><span class="st">"Catleya maxima"</span>, modo <span class="op">=</span> <span class="st">"exploratorio"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 4 × 16</span></span>
+<span><span class="co">#&gt;   indice_entrada nombre_original fuente           edicion                paquete_version nombre_coincidente nombre_aceptado nombre_candidato</span></span>
+<span><span class="co">#&gt;            &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;            &lt;chr&gt;                  &lt;chr&gt;           &lt;chr&gt;              &lt;chr&gt;           &lt;chr&gt;           </span></span>
+<span><span class="co">#&gt; 1              1 Catleya maxima  cites            MINAM flora 2018       0.1.0           &lt;NA&gt;               &lt;NA&gt;            Cattleya maxima </span></span>
+<span><span class="co">#&gt; 2              1 Catleya maxima  endemismo_actual WCVP V-16 (2026-06-04) 0.2.2           &lt;NA&gt;               &lt;NA&gt;            &lt;NA&gt;            </span></span>
+<span><span class="co">#&gt; 3              1 Catleya maxima  libro_rojo       Libro Rojo 2006        0.1.0           &lt;NA&gt;               &lt;NA&gt;            &lt;NA&gt;            </span></span>
+<span><span class="co">#&gt; 4              1 Catleya maxima  ds043            D. S. 043-2006-AG      0.2.3           &lt;NA&gt;               &lt;NA&gt;            Cattleya maxima </span></span>
+<span><span class="co">#&gt;   tipo_coincidencia evaluacion        distancia presencia status_fuente status_candidato id_registro referencia                         </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;             &lt;chr&gt;                 &lt;dbl&gt; &lt;lgl&gt;     &lt;chr&gt;         &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt;                              </span></span>
+<span><span class="co">#&gt; 1 fuzzy             requiere_revision         1 NA        &lt;NA&gt;          II               488         cites_flora_peru_2018              </span></span>
+<span><span class="co">#&gt; 2 &lt;NA&gt;              sin_coincidencia          1 FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;        ppendemic_tab16                    </span></span>
+<span><span class="co">#&gt; 3 no_match          sin_coincidencia         NA FALSE     &lt;NA&gt;          &lt;NA&gt;             &lt;NA&gt;        redbook_sp_data                    </span></span>
+<span><span class="co">#&gt; 4 approximate       requiere_revision        NA NA        &lt;NA&gt;          CR               &lt;NA&gt;        original y nomenclatura actualizada</span></span>
 <span><span class="fu"><a href="reference/flora_status.html">flora_status</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Aa aurantiaca"</span>, <span class="st">"Persea americana"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/flora_fuentes.html">flora_fuentes</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 2 × 7</span></span>
+<span><span class="co">#&gt;   indice_entrada nombre_original  cites_apendice endemismo_actual libro_rojo_endemico ds043_categoria requiere_revision</span></span>
+<span><span class="co">#&gt;            &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;          &lt;lgl&gt;            &lt;lgl&gt;               &lt;chr&gt;           &lt;lgl&gt;            </span></span>
+<span><span class="co">#&gt; 1              1 Aa aurantiaca    II             TRUE             FALSE               &lt;NA&gt;            FALSE            </span></span>
+<span><span class="co">#&gt; 2              2 Persea americana &lt;NA&gt;           FALSE            FALSE               &lt;NA&gt;            FALSE</span></span>
+<span><span class="fu"><a href="reference/flora_fuentes.html">flora_fuentes</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 4 × 5</span></span>
+<span><span class="co">#&gt;   fuente           paquete       edicion                referencia                          paquete_version</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;                  &lt;chr&gt;                               &lt;chr&gt;          </span></span>
+<span><span class="co">#&gt; 1 cites            citesperu     MINAM flora 2018       cites_flora_peru_2018               0.1.0          </span></span>
+<span><span class="co">#&gt; 2 endemismo_actual ppendemic     WCVP V-16 (2026-06-04) ppendemic_tab16                     0.2.2          </span></span>
+<span><span class="co">#&gt; 3 libro_rojo       redbookperu   Libro Rojo 2006        redbook_sp_data                     0.1.0          </span></span>
+<span><span class="co">#&gt; 4 ds043            peruflorads43 D. S. 043-2006-AG      original y nomenclatura actualizada 0.2.3</span></span></code></pre></div>
 <p>El modo <code>exploratorio</code> (predeterminado) permite sugerencias, siempre marcadas para revisión. En modo <code>estricto</code>, CITES, WCVP y Libro Rojo usan búsqueda exacta; la salida del D. S. 043 se comprueba además contra el nombre ingresado porque su API no permite desactivar la búsqueda aproximada. <code>sp.</code>, <code>spp.</code> y nombres de solo género quedan como identificaciones incompletas.</p>
 <p>Por ejemplo, <code>flora_status(c("Cattleya maxima", "Catleya maxima"))</code> muestra el mismo apéndice CITES y la misma categoría D. S. 043 para ambos nombres. Solo la segunda fila indica <code>requiere_revision = TRUE</code>; los valores de esa fila son candidatos y se pueden auditar con <code><a href="reference/flora_match.html">flora_match()</a></code>.</p>
 </div>
@@ -177,6 +281,14 @@
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/peruflora" class="external-link">peruflora</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Adjuntando el paquete: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">inventario</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
@@ -192,12 +304,28 @@
 <span>  abundancia <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">inventario</span></span>
+<span><span class="co">#&gt; # A tibble: 5 × 4</span></span>
+<span><span class="co">#&gt;   indice_entrada parcela nombre_cientifico abundancia</span></span>
+<span><span class="co">#&gt;            &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;                  &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1              1 P01     Aa aurantiaca              2</span></span>
+<span><span class="co">#&gt; 2              2 P01     Cattleya maxima            1</span></span>
+<span><span class="co">#&gt; 3              3 P02     Persea americana           4</span></span>
+<span><span class="co">#&gt; 4              4 P02     Aa aurantiaca              3</span></span>
+<span><span class="co">#&gt; 5              5 P03     Catleya maxima             1</span></span>
 <span></span>
 <span><span class="va">estado</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/flora_status.html">flora_status</a></span><span class="op">(</span></span>
 <span>  <span class="va">inventario</span>,</span>
 <span>  name_col <span class="op">=</span> <span class="st">"nombre_cientifico"</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">estado</span></span>
+<span><span class="co">#&gt; # A tibble: 5 × 7</span></span>
+<span><span class="co">#&gt;   indice_entrada nombre_original  cites_apendice endemismo_actual libro_rojo_endemico ds043_categoria requiere_revision</span></span>
+<span><span class="co">#&gt;            &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;          &lt;lgl&gt;            &lt;lgl&gt;               &lt;chr&gt;           &lt;lgl&gt;            </span></span>
+<span><span class="co">#&gt; 1              1 Aa aurantiaca    II             TRUE             FALSE               &lt;NA&gt;            FALSE            </span></span>
+<span><span class="co">#&gt; 2              2 Cattleya maxima  II             FALSE            FALSE               CR              FALSE            </span></span>
+<span><span class="co">#&gt; 3              3 Persea americana &lt;NA&gt;           FALSE            FALSE               &lt;NA&gt;            FALSE            </span></span>
+<span><span class="co">#&gt; 4              4 Aa aurantiaca    II             TRUE             FALSE               &lt;NA&gt;            FALSE            </span></span>
+<span><span class="co">#&gt; 5              5 Catleya maxima   II             FALSE            FALSE               CR              TRUE</span></span>
 <span></span>
 <span><span class="va">inventario_evaluado</span> <span class="op">&lt;-</span> <span class="va">inventario</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span></span>
@@ -205,7 +333,15 @@
 <span>    by <span class="op">=</span> <span class="st">"indice_entrada"</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="va">inventario_evaluado</span></span></code></pre></div>
+<span><span class="va">inventario_evaluado</span></span>
+<span><span class="co">#&gt; # A tibble: 5 × 9</span></span>
+<span><span class="co">#&gt;   indice_entrada parcela nombre_cientifico abundancia cites_apendice endemismo_actual libro_rojo_endemico ds043_categoria requiere_revision</span></span>
+<span><span class="co">#&gt;            &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;                  &lt;dbl&gt; &lt;chr&gt;          &lt;lgl&gt;            &lt;lgl&gt;               &lt;chr&gt;           &lt;lgl&gt;            </span></span>
+<span><span class="co">#&gt; 1              1 P01     Aa aurantiaca              2 II             TRUE             FALSE               &lt;NA&gt;            FALSE            </span></span>
+<span><span class="co">#&gt; 2              2 P01     Cattleya maxima            1 II             FALSE            FALSE               CR              FALSE            </span></span>
+<span><span class="co">#&gt; 3              3 P02     Persea americana           4 &lt;NA&gt;           FALSE            FALSE               &lt;NA&gt;            FALSE            </span></span>
+<span><span class="co">#&gt; 4              4 P02     Aa aurantiaca              3 II             TRUE             FALSE               &lt;NA&gt;            FALSE            </span></span>
+<span><span class="co">#&gt; 5              5 P03     Catleya maxima             1 II             FALSE            FALSE               CR              TRUE</span></span></code></pre></div>
 <p>La fila con <code>Catleya maxima</code> conserva las categorías sugeridas en el resumen, pero <code>requiere_revision = TRUE</code> indica que son candidatas. Para revisar la evidencia de ese registro, use <code>flora_match(inventario, name_col = "nombre_cientifico")</code>.</p>
 </div>
 <div class="section level2">
