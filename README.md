@@ -11,31 +11,28 @@ de cada fuente.
 
 ## Instalación
 
-La primera versión de `peruflora` es 0.1.0. Hasta su publicación en
-CRAN, instálela desde GitHub. Requiere `redbookperu` 0.1.0 o posterior,
-disponible en CRAN:
+Instala **peruflora** y todas sus dependencias desde GitHub con una de
+estas opciones:
 
 ``` r
-if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
-install.packages("redbookperu")
+# Instalar usando pak (recomendado)
+# install.packages("pak")
 pak::pak("PaulESantos/peruflora")
 
-packageVersion("redbookperu") # debe ser >= 0.1.0
+# O alternativamente con remotes
+# install.packages("remotes")
+remotes::install_github("PaulESantos/peruflora")
 ```
 
-Si ya tiene instalada una versión anterior de `redbookperu`, actualícela
-desde CRAN antes de cargar `peruflora`. El adaptador usa
-`redbookperu::match_redbook_names()` de la versión 0.1.0 y fija el
-parser `"legacy"` para mantener resultados reproducibles con
-independencia de si `wcvpmatch` está instalado.
+Los cuatro paquetes especializados (`citesperu`, `ppendemic`,
+`redbookperu` y `peruflorads43`) también se pueden instalar y utilizar
+por separado. `library(peruflora)` los adjunta automáticamente en la
+sesión; sus funciones siguen disponibles con `paquete::funcion()`.
 
-Los cuatro paquetes especializados también se pueden instalar y utilizar
-por separado. `library(peruflora)` los adjunta en la sesión; sus
-funciones siguen disponibles con `paquete::funcion()`. Al cargarse,
-`peruflora` muestra los paquetes recién adjuntados con sus versiones y
-avisa si alguna función queda enmascarada. Puede silenciar este aviso
-con `suppressPackageStartupMessages(library(peruflora))` o con la opción
-`options(peruflora.quiet = TRUE)`.
+Al cargarse, `peruflora` muestra los paquetes recién adjuntados con sus
+versiones y avisa si alguna función queda enmascarada. Puede silenciar
+este aviso con `suppressPackageStartupMessages(library(peruflora))` o
+con la opción `options(peruflora.quiet = TRUE)`.
 
 ## Aplicación interactiva (Shiny)
 
@@ -56,9 +53,6 @@ install.packages(c("readxl", "writexl"))
 ``` r
 # Iniciar con el alias canónico
 peruflora::flora_app()
-
-# O con opciones avanzadas de host y puerto
-peruflora::run_peruflora_app(host = "127.0.0.1", port = 3838)
 ```
 
 También puedes ejecutarla directamente desde el archivo `app.R` en la
